@@ -10,7 +10,6 @@ import (
 
 func initApp() error {
 	// 配置初始化
-	// 配置加载
 
 	// 日志初始化
 	log.InitLog()
@@ -26,6 +25,7 @@ func main() {
 	// 运行服务器
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", handler.RootHandler)
+	mux.HandleFunc("/health", handler.HealthHandler)
 
 	logrus.Infof("miniserver start listen[%s]...", config.AppBindAddress)
 	if err := http.ListenAndServe(config.AppBindAddress, mux); err != nil {

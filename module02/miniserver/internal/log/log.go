@@ -8,6 +8,4 @@ import (
 // InitLog 初始化日志
 func InitLog() {
 	logrus.SetLevel(config.AppLogLevel)
-	logrus.SetReportCaller(true)
-	logrus.SetFormatter(&logrus.JSONFormatter{})
 }
